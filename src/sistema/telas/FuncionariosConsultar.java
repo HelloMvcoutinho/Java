@@ -131,7 +131,7 @@ public class FuncionariosConsultar extends JPanel {
             
             // criando a instrução SQL 
            instrucaoSQL = conexao.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            resultados = instrucaoSQL.executeQuery("SELECT * FROM funcionarios WHERE nome like '%"+nome+"%' order by nome ASC");
+            resultados = instrucaoSQL.executeQuery("SELECT * FROM tb_funcionarios WHERE nome like '%"+nome+"%' order by nome ASC");
             
             listasFuncionariosModelo.clear();
 

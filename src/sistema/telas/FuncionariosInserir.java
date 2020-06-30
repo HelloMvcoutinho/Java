@@ -149,12 +149,12 @@ public class FuncionariosInserir extends JPanel {
             conexao = DriverManager.getConnection(BancoDados.url, BancoDados.user, BancoDados.password);            
             
             instrucaoSQL = conexao.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            resultados = instrucaoSQL.executeQuery("SELECT * from cargos order by nome asc");
+            resultados = instrucaoSQL.executeQuery("SELECT * from tb_cargos order by nome asc");
             comboboxCargo.removeAll();          
             
             while (resultados.next()) {
                 Cargo cargo = new Cargo();
-                cargo.setId(resultados.getInt("id"));
+                cargo.setId(resultados.getInt("id_cargos"));
                 cargo.setNome(resultados.getString("nome"));
                 comboboxCargo.addItem(cargo);
             }
@@ -182,7 +182,7 @@ public class FuncionariosInserir extends JPanel {
             return;
         }
         
-        // validando sobrenome
+        // validando campoSalario
         if(Double.parseDouble(campoSalario.getText().replace(",", ".")) <= 100){
             JOptionPane.showMessageDialog(null, "Por favor, preencha o salário corretamente.");
             return;
@@ -209,9 +209,8 @@ public class FuncionariosInserir extends JPanel {
             // conectando ao banco de dados
             conexao = DriverManager.getConnection(BancoDados.url, BancoDados.user, BancoDados.password);
             
-            String template = "INSERT INTO funcionarios (nome,sobrenome,dataNascimento,email,cargo,salario)";
-            template = template+" VALUES (?,?,?,?,?,?)";
-            instrucaoSQL = conexao.prepareStatement(template);
+            String sql = "INSERT INTO tb_funcionarios (nome,sobrenome,dataNascimento,email,cargo,salario) VALUES (?,?,?,?,?,?)";
+            instrucaoSQL = conexao.prepareStatement(sql);
             instrucaoSQL.setString(1, novoFuncionario.getNome());
             instrucaoSQL.setString(2, novoFuncionario.getSobrenome());
             instrucaoSQL.setString(3, novoFuncionario.getDataNascimento());

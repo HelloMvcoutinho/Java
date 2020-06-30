@@ -24,7 +24,7 @@ public class Sistema {
     }
     private static void criarComponentes(){
         frame = new JFrame("Sistema");
-        frame.setSize(750,500);
+        frame.setSize(750,580);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         
