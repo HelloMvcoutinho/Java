@@ -67,7 +67,7 @@ public class FuncionariosInserir extends JPanel {
         labelDataNascimento = new JLabel("Data de Nascimento:", JLabel.LEFT);
         campoDataNascimento = new JFormattedTextField();
         try {
-            MaskFormatter dateMask= new MaskFormatter("##/##/####");
+            MaskFormatter dateMask= new MaskFormatter("####/##/##");
             dateMask.install(campoDataNascimento);
         } catch (ParseException ex) {
             Logger.getLogger(FuncionariosInserir.class.getName()).log(Level.SEVERE, null, ex);
@@ -209,7 +209,7 @@ public class FuncionariosInserir extends JPanel {
             // conectando ao banco de dados
             conexao = DriverManager.getConnection(BancoDados.url, BancoDados.user, BancoDados.password);
             
-            String sql = "INSERT INTO tb_funcionarios (nome,sobrenome,dataNascimento,email,cargo,salario) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO tb_funcionarios (nome,sobrenome,dataNasci,email,cargo,salario) VALUES (?,?,?,?,?,?)";
             instrucaoSQL = conexao.prepareStatement(sql);
             instrucaoSQL.setString(1, novoFuncionario.getNome());
             instrucaoSQL.setString(2, novoFuncionario.getSobrenome());
