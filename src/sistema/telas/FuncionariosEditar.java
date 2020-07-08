@@ -68,7 +68,7 @@ public class FuncionariosEditar extends JPanel {
         labelDataNascimento = new JLabel("Data de Nascimento:", JLabel.LEFT);
         campoDataNascimento = new JFormattedTextField(funcionarioAtual.getDataNascimento());
         try {
-            MaskFormatter dateMask= new MaskFormatter("##/##/####");
+            MaskFormatter dateMask= new MaskFormatter("####/##/##");
             dateMask.install(campoDataNascimento);
         } catch (ParseException ex) {
             Logger.getLogger(FuncionariosInserir.class.getName()).log(Level.SEVERE, null, ex);
@@ -149,13 +149,14 @@ public class FuncionariosEditar extends JPanel {
             conexao = DriverManager.getConnection(BancoDados.url, BancoDados.user, BancoDados.password);
             
             instrucaoSQL = conexao.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            resultados = instrucaoSQL.executeQuery("SELECT * from cargos order by nome asc");
+            resultados = instrucaoSQL.executeQuery("SELECT * from tb_cargos order by nome asc");
             comboboxCargo.removeAll();          
             
             while (resultados.next()) {
                 Cargo cargo = new Cargo();
-                cargo.setId(resultados.getInt("id"));
+                cargo.setId(resultados.getInt("id_cargos"));
                 cargo.setNome(resultados.getString("nome"));
+                
                 comboboxCargo.addItem(cargo);
                 
                 if(cargoAtual == cargo.getId()) comboboxCargo.setSelectedItem(cargo);
@@ -213,7 +214,7 @@ public class FuncionariosEditar extends JPanel {
             // conectando ao banco de dados
             conexao = DriverManager.getConnection(BancoDados.url, BancoDados.user, BancoDados.password);
             
-            String template = "UPDATE funcionarios set nome=?, sobrenome=?, dataNascimento=?, email=?, cargo=?, salario=?";
+            String template = "UPDATE tb_funcionarios set nome=?, sobrenome=?, dataNasci=?, email=?, cargo=?, salario=?";
             template = template+" WHERE id="+funcionarioAtual.getId();
             instrucaoSQL = conexao.prepareStatement(template);
             instrucaoSQL.setString(1, campoNome.getText());

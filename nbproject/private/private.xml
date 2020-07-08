@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/DEV/Java/src/sistema/telas/RelatoriosSalarios.java</file>
+            <file>file:/C:/DEV/Java/src/sistema/telas/FuncionariosEditar.java</file>
+            <file>file:/C:/DEV/Java/src/sistema/telas/CargosEditar.java</file>
+            <file>file:/C:/DEV/Java/src/sistema/Navegador.java</file>
+            <file>file:/C:/DEV/Java/src/sistema/telas/FuncionariosConsultar.java</file>
+            <file>file:/C:/DEV/Java/src/sistema/entidades/Funcionario.java</file>
+        </group>
     </open-files>
 </project-private>

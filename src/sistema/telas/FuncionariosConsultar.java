@@ -94,6 +94,7 @@ public class FuncionariosConsultar extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Navegador.funcionariosEditar(funcionarioAtual);
+
             }
         });
         botaoExcluir.addActionListener(new ActionListener() {
@@ -140,12 +141,13 @@ public class FuncionariosConsultar extends JPanel {
                 funcionario.setId(resultados.getInt("id"));
                 funcionario.setNome(resultados.getString("nome"));
                 funcionario.setSobrenome(resultados.getString("sobrenome"));
-                funcionario.setDataNascimento(resultados.getString("dataNascimento"));
+                funcionario.setDataNascimento(resultados.getString("dataNasci"));
                 funcionario.setEmail(resultados.getString("email"));
                 if(resultados.getString("cargo") != null) funcionario.setCargo(Integer.parseInt(resultados.getString("cargo")));
                 funcionario.setSalario(Double.parseDouble(resultados.getString("salario")));
                 
                 listasFuncionariosModelo.addElement(funcionario);
+                
             }
             
         } catch (SQLException ex) {
