@@ -25,8 +25,7 @@ import sistema.telas.FuncionariosInserir;
 import sistema.telas.Inicio;
 import sistema.telas.Login;
 import sistema.telas.RelatoriosCargos;
-//import sistema.telas.RelatoriosCargos;
-//import sistema.telas.RelatoriosSalarios;
+import sistema.telas.RelatoriosSalarios;
 
 public class Navegador {
     
